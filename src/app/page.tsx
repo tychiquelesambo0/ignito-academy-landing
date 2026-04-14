@@ -426,13 +426,25 @@ export default function Home() {
                 { emoji: '🏆', title: t('landing.scholarship.covers_slots'), desc: t('landing.scholarship.covers_slots_desc') },
               ].map((card, i) => (
                 <div key={i}
-                  className="rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                  className="rounded-xl p-6 text-center transition-all duration-300 cursor-default"
                   style={{
                     background: 'rgba(237,239,242,0.05)',
                     border: '1px solid rgba(237,239,242,0.18)',
+                    transform: 'translateY(0)',
+                    boxShadow: 'none',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(237,239,242,0.35)')}
-                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(237,239,242,0.18)')}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = '#EDEFF2'
+                    e.currentTarget.style.background = 'rgba(237,239,242,0.10)'
+                    e.currentTarget.style.transform = 'translateY(-6px)'
+                    e.currentTarget.style.boxShadow = '0 12px 32px rgba(237,239,242,0.12)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(237,239,242,0.18)'
+                    e.currentTarget.style.background = 'rgba(237,239,242,0.05)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
                 >
                   <div className="text-3xl mb-3">{card.emoji}</div>
                   <p className="font-bold text-white text-base mb-1">{card.title}</p>
@@ -453,7 +465,23 @@ export default function Home() {
                   t('landing.scholarship.criteria_2'),
                   t('landing.scholarship.criteria_3'),
                 ].map((c, i) => (
-                  <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
+                  <div key={i}
+                    className="flex items-center gap-3 p-4 rounded-lg cursor-default transition-all duration-300"
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.10)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = '#EDEFF2'
+                      e.currentTarget.style.background = 'rgba(237,239,242,0.08)'
+                      e.currentTarget.style.transform = 'translateY(-2px)'
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
+                      e.currentTarget.style.transform = 'translateY(0)'
+                    }}
+                  >
                     <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ background: 'rgba(237,239,242,0.12)' }}>
                       <CheckCircle2 className="w-3.5 h-3.5" style={{ color: '#EDEFF2' }} />
@@ -465,15 +493,24 @@ export default function Home() {
             </div>
 
             {/* CTA */}
-            <div className="text-center space-y-3">
+            <div className="text-center">
               <Button
                 onClick={() => window.location.href = '/eligibilite'}
-                className="w-full sm:w-auto min-h-[52px] px-8 font-bold rounded-md text-base transition-all shadow-lg"
+                className="w-full sm:w-auto min-h-[52px] px-8 font-bold rounded-md text-base transition-all duration-200 shadow-lg"
                 style={{ background: '#EDEFF2', color: '#021463' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#D5D9DE'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(237,239,242,0.20)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#EDEFF2'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = ''
+                }}
               >
                 {t('landing.scholarship.cta')}
               </Button>
-              <p className="text-xs text-slate-400">{t('landing.scholarship.note')}</p>
             </div>
 
           </div>
