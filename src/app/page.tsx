@@ -581,7 +581,6 @@ export default function Home() {
                   {t('landing.final_cta.cta')}
                 </Button>
               </Link>
-              <p className="text-sm font-normal text-[#021463] mt-5">{t('landing.final_cta.note')}</p>
             </div>
           </div>
         </section>
