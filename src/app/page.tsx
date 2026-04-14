@@ -33,7 +33,7 @@ export default function Home() {
   
   const handleApplyClick = useCallback(() => {
     setMobileMenuOpen(false)
-    window.location.href = 'https://admissions.ignitoacademy.com/apply'
+    window.location.href = 'https://admissions.ignitoacademy.com/apply?tab=dossier'
   }, [router])
   
   const handleLoginClick = useCallback(() => {
@@ -143,7 +143,7 @@ export default function Home() {
                 {t('landing.hero.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="https://admissions.ignitoacademy.com/apply">
+                <Link href="https://admissions.ignitoacademy.com/apply?tab=dossier">
                   <Button size="lg" className="bg-[#4EA6F5] hover:bg-[#3a92e0] text-white min-h-[52px] px-10 text-base font-semibold rounded-md w-full sm:w-auto shadow-lg shadow-[#4EA6F5]/30">
                     {t('landing.hero.cta_primary')}
                   </Button>
@@ -542,7 +542,7 @@ export default function Home() {
               <p className="text-lg md:text-xl font-normal text-[#021463] mb-10 max-w-2xl mx-auto leading-relaxed">
                 {t('landing.final_cta.subtitle')}
               </p>
-              <Link href="https://admissions.ignitoacademy.com/apply" className="block w-full sm:w-auto sm:inline-block">
+              <Link href="https://admissions.ignitoacademy.com/apply?tab=dossier" className="block w-full sm:w-auto sm:inline-block">
                 <Button size="lg" className="w-full sm:w-auto bg-[#021463] hover:bg-[#021463]/90 text-white min-h-[56px] px-8 sm:px-12 text-lg font-semibold rounded-md shadow-lg shadow-[#021463]/30">
                   {t('landing.final_cta.cta')}
                 </Button>
@@ -574,7 +574,7 @@ export default function Home() {
               <div>
                 <h3 className="font-bold mb-4">{t('landing.footer.quick_links')}</h3>
                 <ul className="space-y-2 text-sm text-slate-400">
-                  <li><Link href="https://admissions.ignitoacademy.com/apply" className="hover:text-white">{t('landing.footer.apply')}</Link></li>
+                  <li><Link href="https://admissions.ignitoacademy.com/apply?tab=dossier" className="hover:text-white">{t('landing.footer.apply')}</Link></li>
                   <li><Link href="https://admissions.ignitoacademy.com/apply?tab=connexion" className="hover:text-white">{t('landing.footer.track')}</Link></li>
                 </ul>
               </div>
