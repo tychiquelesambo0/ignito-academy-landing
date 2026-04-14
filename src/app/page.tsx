@@ -393,13 +393,14 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
           {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse, #f59e0b 0%, transparent 70%)' }} />
+            style={{ background: 'radial-gradient(ellipse, #4EA6F5 0%, transparent 70%)' }} />
 
           <div className="container mx-auto px-4 relative z-10">
 
             {/* Badge */}
             <div className="flex justify-center mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border"
+                style={{ background: 'rgba(237,239,242,0.10)', color: '#EDEFF2', borderColor: 'rgba(237,239,242,0.25)' }}>
                 ⭐ {t('landing.scholarship.badge')}
               </span>
             </div>
@@ -419,26 +420,31 @@ export default function Home() {
 
             {/* Coverage cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-12">
-              <div className="rounded-xl border border-amber-500/30 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-amber-500/20 hover:border-amber-500/50" style={{ background: 'rgba(245,158,11,0.08)' }}>
-                <div className="text-3xl mb-3">🎓</div>
-                <p className="font-bold text-white text-base mb-1">{t('landing.scholarship.covers_tuition')}</p>
-                <p className="text-slate-400 text-sm">{t('landing.scholarship.covers_tuition_desc')}</p>
-              </div>
-              <div className="rounded-xl border border-amber-500/30 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-amber-500/20 hover:border-amber-500/50" style={{ background: 'rgba(245,158,11,0.08)' }}>
-                <div className="text-3xl mb-3">📶</div>
-                <p className="font-bold text-white text-base mb-1">{t('landing.scholarship.covers_internet')}</p>
-                <p className="text-slate-400 text-sm">{t('landing.scholarship.covers_internet_desc')}</p>
-              </div>
-              <div className="rounded-xl border border-amber-500/30 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-amber-500/20 hover:border-amber-500/50" style={{ background: 'rgba(245,158,11,0.08)' }}>
-                <div className="text-3xl mb-3">🏆</div>
-                <p className="font-bold text-white text-base mb-1">{t('landing.scholarship.covers_slots')}</p>
-                <p className="text-slate-400 text-sm">{t('landing.scholarship.covers_slots_desc')}</p>
-              </div>
+              {[
+                { emoji: '🎓', title: t('landing.scholarship.covers_tuition'), desc: t('landing.scholarship.covers_tuition_desc') },
+                { emoji: '📶', title: t('landing.scholarship.covers_internet'), desc: t('landing.scholarship.covers_internet_desc') },
+                { emoji: '🏆', title: t('landing.scholarship.covers_slots'), desc: t('landing.scholarship.covers_slots_desc') },
+              ].map((card, i) => (
+                <div key={i}
+                  className="rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                  style={{
+                    background: 'rgba(237,239,242,0.05)',
+                    border: '1px solid rgba(237,239,242,0.18)',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(237,239,242,0.35)')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(237,239,242,0.18)')}
+                >
+                  <div className="text-3xl mb-3">{card.emoji}</div>
+                  <p className="font-bold text-white text-base mb-1">{card.title}</p>
+                  <p className="text-slate-400 text-sm">{card.desc}</p>
+                </div>
+              ))}
             </div>
 
             {/* Eligibility criteria */}
             <div className="max-w-2xl mx-auto mb-10">
-              <p className="text-center text-xs font-bold uppercase tracking-widest text-amber-400 mb-5">
+              <p className="text-center text-xs font-bold uppercase tracking-widest mb-5"
+                style={{ color: '#EDEFF2' }}>
                 {t('landing.scholarship.criteria_title')}
               </p>
               <div className="space-y-3">
@@ -448,8 +454,9 @@ export default function Home() {
                   t('landing.scholarship.criteria_3'),
                 ].map((c, i) => (
                   <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(237,239,242,0.12)' }}>
+                      <CheckCircle2 className="w-3.5 h-3.5" style={{ color: '#EDEFF2' }} />
                     </div>
                     <span className="text-sm text-slate-200">{c}</span>
                   </div>
@@ -458,10 +465,11 @@ export default function Home() {
             </div>
 
             {/* CTA */}
-              <div className="text-center space-y-3">
+            <div className="text-center space-y-3">
               <Button
-                onClick={handleApplyClick}
-                className="w-full sm:w-auto min-h-[52px] px-8 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-md text-base transition-all shadow-lg shadow-amber-500/30"
+                onClick={() => window.location.href = '/eligibilite'}
+                className="w-full sm:w-auto min-h-[52px] px-8 font-bold rounded-md text-base transition-all shadow-lg"
+                style={{ background: '#EDEFF2', color: '#021463' }}
               >
                 {t('landing.scholarship.cta')}
               </Button>
