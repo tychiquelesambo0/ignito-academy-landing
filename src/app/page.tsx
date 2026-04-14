@@ -496,18 +496,7 @@ export default function Home() {
             <div className="text-center">
               <Button
                 onClick={() => window.location.href = '/eligibilite'}
-                className="w-full sm:w-auto min-h-[52px] px-8 font-bold rounded-md text-base transition-all duration-200 shadow-lg"
-                style={{ background: '#EDEFF2', color: '#021463' }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = '#D5D9DE'
-                  e.currentTarget.style.transform = 'translateY(-2px)'
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(237,239,242,0.20)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = '#EDEFF2'
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = ''
-                }}
+                className="bg-[#4EA6F5] hover:bg-[#3a92e0] text-white min-h-[52px] px-10 text-base font-semibold rounded-md w-full sm:w-auto shadow-lg shadow-[#4EA6F5]/30"
               >
                 {t('landing.scholarship.cta')}
               </Button>
