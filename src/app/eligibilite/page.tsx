@@ -12,6 +12,7 @@ import {
   ChevronRight,
   AlertCircle,
 } from 'lucide-react'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 const AMS_URL = 'https://admissions.ignitoacademy.com'
 const INTAKE_YEAR = 2026
@@ -202,14 +203,21 @@ export default function EligibilitePage() {
     <div className="min-h-screen bg-[#F8FAFC] font-sans flex flex-col">
 
       {/* ── Nav ── */}
-      <nav className="bg-[#021463] h-16 flex items-center px-4 sm:px-6 flex-shrink-0">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/ignito-logo-white.svg" alt="Ignito Academy" width={110} height={36} priority />
-        </Link>
-        <span className="ml-2.5 font-serif text-[12px] font-semibold tracking-widest text-white/55 hidden sm:block">
-          ADMITTA
-        </span>
-      </nav>
+      <header className="bg-[#F8FAFC] border-b border-[#E2E8F0] shadow-sm sticky top-0 z-50 flex-shrink-0">
+        <div className="container mx-auto px-4 flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="/ignito-logo.svg"
+              alt="Ignito Academy"
+              width={153}
+              height={34}
+              priority
+              className="h-[32px] w-auto"
+            />
+          </Link>
+          <LanguageSwitcher />
+        </div>
+      </header>
 
       {/* ── Content ── */}
       <div className="flex-1 w-full max-w-lg mx-auto px-4 sm:px-6 py-8 sm:py-10">
