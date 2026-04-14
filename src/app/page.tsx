@@ -336,7 +336,7 @@ export default function Home() {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  {[1, 2, 3, 4, 5, 6].map((num) => (
+                  {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                     <div key={num} className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0">
                         {num}
